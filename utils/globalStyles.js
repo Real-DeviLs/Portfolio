@@ -6,6 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  color: #6b6768;
   font-family: IBM Plex Mono,monospace;
     letter-spacing: -0.015em;
     background: ${props=>props.theme.colors.backgroundLight};
