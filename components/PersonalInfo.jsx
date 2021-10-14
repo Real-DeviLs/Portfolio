@@ -14,8 +14,7 @@ const StyledSpan = styled.span`
 `
 
 const LeftWrapper = styled.div`
-
-   
+    padding: 0px;
 `
 
 const TagWrapper = styled.div`
