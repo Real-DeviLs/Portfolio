@@ -2,14 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 
-import { PersonalInfo,Biography } from '../components/'
+import { PersonalInfo,Biography,ContactUs } from '../components/'
 
  
 
 export default function Home() {
   return (
       <>
-      <PersonalInfo></PersonalInfo>
+      <ContactUs/>
+      {/* <PersonalInfo></PersonalInfo> */}
       {/* <Biography></Biography> */}
       </>
   )
