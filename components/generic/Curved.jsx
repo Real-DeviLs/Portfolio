@@ -16,6 +16,10 @@ export const Curved = ({ text, objectSize = 120, spacing = 12, offset = 30, over
       fill: currentColor;
       text-anchor: middle;
     }
+    @media(max-width:${props => props.theme.breakpoint.tablet})
+    {
+      display: none;
+    }
   `
 
   return (

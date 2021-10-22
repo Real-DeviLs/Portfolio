@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 
@@ -66,13 +66,13 @@ const RightText = styled.div`
 
 const AnswerWrapper = styled.div`
 
-    display: ${props=>props.active?"block":"none"};
+    display: ${props => props.active ? "block" : "none"};
     user-select: none;
 
 `
 
 
-const Answer  = styled.div`
+const Answer = styled.div`
 
 
 `
@@ -88,34 +88,34 @@ const Date = styled.div`
 
 
 export const AccordianItem = (props) => {
-    const [setActive,setAciveState] = useState("")
+  const [setActive, setAciveState] = useState("")
 
-  
 
-    const {question,answer} = props.faq;
-    return(
 
-       <Wrapper>
-            <StyledButton onClick={()=>{ console.log("Ethe"); setAciveState(!setActive)}} active = {setActive}>
-            <Date>Jan 2003 May 2007</Date>
-            <TextWrapper> 
-            <Title>    {question}</Title>
-            <RightWrapper>
-                <RightText>
-                    George Mason University, Fairfax
-                </RightText>
-            </RightWrapper>
-            </TextWrapper>
-           
-        
-            {/* <StyledSpan>-</StyledSpan> */}
-            </StyledButton>
-            <AnswerWrapper active={setActive}>
+  const { question, answer } = props.faq;
+  return (
 
-                <Answer>{answer}</Answer>
-            </AnswerWrapper>
-       </Wrapper>
-    )
+    <Wrapper>
+      <StyledButton onClick={() => { console.log("Ethe"); setAciveState(!setActive) }} active={setActive}>
+        <Date>Jan 2003 May 2007</Date>
+        <TextWrapper>
+          <Title>    {question}</Title>
+          <RightWrapper>
+            <RightText>
+              George Mason University, Fairfax
+            </RightText>
+          </RightWrapper>
+        </TextWrapper>
+
+
+        {/* <StyledSpan>-</StyledSpan> */}
+      </StyledButton>
+      <AnswerWrapper active={setActive}>
+
+        <Answer>{answer}</Answer>
+      </AnswerWrapper>
+    </Wrapper>
+  )
 }
 
 

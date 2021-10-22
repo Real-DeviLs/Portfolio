@@ -32,7 +32,7 @@ const TagText = styled.h4`
 `
 
 const LeftWrapper = styled.div`
-   
+
     padding:25px 70px;
 
 `
@@ -40,7 +40,7 @@ const LeftWrapper = styled.div`
 const RightWrapper = styled.div`
 
     padding:25px;
-  
+
 `
 
 
@@ -50,7 +50,7 @@ const InputFlex = styled.div`
     @media(max-width:643px)
     {
         flex-direction: column;
-        
+
     }
 `
 
@@ -91,12 +91,12 @@ const StyledTextArea = styled.textarea`
     @media(max-width:${props => props.theme.breakpoint.tablet})
     {
         width:97%;
-        
+
     }
     @media(max-width:643px)
     {
         width:94%;
-        
+
     }
 `
 const IconWrapper = styled.span`
@@ -104,7 +104,7 @@ const IconWrapper = styled.span`
     position: absolute;
     right: 25px;
     top: 28px;
-    
+
 
 `
 
@@ -142,78 +142,78 @@ const StyledButton = styled.button`
 export const ContactUs = (props) => {
 
 
-    return (
-        <>
-            <Wrapper>
-                <LeftWrapper>
-                    <Heading>Get in Touch</Heading>
-                    <Tag>
-                        <BsPencilSquare />
-                        <TagText> Contact US</TagText>
-                    </Tag>
-                    <Description>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus at alias quod maxime culpa incidunt adipisci iusto! In, excepturi! Deleniti commodi assumenda illo repudiandae velit architecto consectetur at, molestias atque! Eos repellat quisquam voluptas, omnis explicabo quasi, magnam laboriosam necessitatibus a maxime ea. Commodi atque dolorem excepturi esse porro! Debitis!
-                    </Description>
-                </LeftWrapper>
-                <RightWrapper>
-                    <form>
+  return (
+    <>
+      <Wrapper>
+        <LeftWrapper>
+          <Heading>Get in Touch</Heading>
+          <Tag>
+            <BsPencilSquare />
+            <TagText> Contact US</TagText>
+          </Tag>
+          <Description>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus at alias quod maxime culpa incidunt adipisci iusto! In, excepturi! Deleniti commodi assumenda illo repudiandae velit architecto consectetur at, molestias atque! Eos repellat quisquam voluptas, omnis explicabo quasi, magnam laboriosam necessitatibus a maxime ea. Commodi atque dolorem excepturi esse porro! Debitis!
+          </Description>
+        </LeftWrapper>
+        <RightWrapper>
+          <form>
 
-                        <InputFlex>
+            <InputFlex>
 
-                            <InputWrapper>
-                                <StyledInput placeholder="Name"></StyledInput>
-                                <IconWrapper>
-                                    <IconContext.Provider value={{ size: "1.51em" }}>
-                                        <BsPerson />
-                                    </IconContext.Provider>
-                                </IconWrapper>
+              <InputWrapper>
+                <StyledInput placeholder="Name"></StyledInput>
+                <IconWrapper>
+                  <IconContext.Provider value={{ size: "1.51em" }}>
+                    <BsPerson />
+                  </IconContext.Provider>
+                </IconWrapper>
 
-                            </InputWrapper>
-                            <InputWrapper>
-                                <StyledInput placeholder="Email"></StyledInput>
-                                <IconWrapper>
-                                    <IconContext.Provider value={{ size: "1.51em" }}>
-                                        <AiOutlineMail />
-                                    </IconContext.Provider>
-                                </IconWrapper>
+              </InputWrapper>
+              <InputWrapper>
+                <StyledInput placeholder="Email"></StyledInput>
+                <IconWrapper>
+                  <IconContext.Provider value={{ size: "1.51em" }}>
+                    <AiOutlineMail />
+                  </IconContext.Provider>
+                </IconWrapper>
 
-                            </InputWrapper>
+              </InputWrapper>
 
 
 
-                        </InputFlex>
+            </InputFlex>
 
-                        <InputFlex>
+            <InputFlex>
 
-                            <InputWrapper>
-                                <StyledInput placeholder="Phone"></StyledInput>
-                                <IconWrapper>
-                                    <IconContext.Provider value={{ size: "1.51em" }}>
-                                        <BsTelephone />
-                                    </IconContext.Provider>
-                                </IconWrapper>
+              <InputWrapper>
+                <StyledInput placeholder="Phone"></StyledInput>
+                <IconWrapper>
+                  <IconContext.Provider value={{ size: "1.51em" }}>
+                    <BsTelephone />
+                  </IconContext.Provider>
+                </IconWrapper>
 
-                            </InputWrapper>
-                            <InputWrapper>
-                                <StyledInput placeholder="Subject"></StyledInput>
-                                <IconWrapper>
-                                    <IconContext.Provider value={{ size: "1.52em" }}>
-                                        <RiLightbulbLine />
-                                    </IconContext.Provider>
-                                </IconWrapper>
+              </InputWrapper>
+              <InputWrapper>
+                <StyledInput placeholder="Subject"></StyledInput>
+                <IconWrapper>
+                  <IconContext.Provider value={{ size: "1.52em" }}>
+                    <RiLightbulbLine />
+                  </IconContext.Provider>
+                </IconWrapper>
 
-                            </InputWrapper>
-                        </InputFlex>
+              </InputWrapper>
+            </InputFlex>
 
-                        <StyledTextArea placeholder="Your Message ..." type="textbox"  ></StyledTextArea>
-                        <StyledButton>
-                            Submit
-                        </StyledButton>
-                    </form>
+            <StyledTextArea placeholder="Your Message ..." type="textbox"  ></StyledTextArea>
+            <StyledButton>
+              Submit
+            </StyledButton>
+          </form>
 
-                </RightWrapper>
+        </RightWrapper>
 
-            </Wrapper>
-        </>
-    )
+      </Wrapper>
+    </>
+  )
 }
