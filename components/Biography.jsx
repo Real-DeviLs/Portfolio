@@ -34,27 +34,27 @@ const Styledparagraph = styled.p`
 
 `
 
-export const Biography = (props)=>{
+export const Biography = (props) => {
 
-  return(
+  return (
     <Wrapper>
 
-    <Heading>Biography</Heading>
-    <Text>
-      <Styledparagraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint molestiae inventore explicabo magni aut vero nobis iusto obcaecati exercitationem consequatur saepe, sapiente nisi nemo assumenda possimus eos omnis deserunt enim.
-      </Styledparagraph>
-      <Styledparagraph>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates nisi eius obcaecati iste iure perferendis omnis est cumque vel sed, non similique eligendi numquam inventore ullam error, sint nulla veritatis.
-      </Styledparagraph>
-      <Styledparagraph>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates nisi eius obcaecati iste iure perferendis omnis est cumque vel sed, non similique eligendi numquam inventore ullam error, sint nulla veritatis.
-      </Styledparagraph>
-      <Styledparagraph>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates nisi eius obcaecati iste iure perferendis omnis est cumque vel sed, non similique eligendi numquam inventore ullam error, sint nulla veritatis.
-      </Styledparagraph>
-      
-    </Text>
+      <Heading>Biography</Heading>
+      <Text>
+        <Styledparagraph>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint molestiae inventore explicabo magni aut vero nobis iusto obcaecati exercitationem consequatur saepe, sapiente nisi nemo assumenda possimus eos omnis deserunt enim.
+        </Styledparagraph>
+        <Styledparagraph>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates nisi eius obcaecati iste iure perferendis omnis est cumque vel sed, non similique eligendi numquam inventore ullam error, sint nulla veritatis.
+        </Styledparagraph>
+        <Styledparagraph>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates nisi eius obcaecati iste iure perferendis omnis est cumque vel sed, non similique eligendi numquam inventore ullam error, sint nulla veritatis.
+        </Styledparagraph>
+        <Styledparagraph>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates nisi eius obcaecati iste iure perferendis omnis est cumque vel sed, non similique eligendi numquam inventore ullam error, sint nulla veritatis.
+        </Styledparagraph>
+
+      </Text>
 
     </Wrapper>
   )
