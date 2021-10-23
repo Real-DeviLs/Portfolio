@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import Image from "next/image";
+import Link from 'next/link'
 import { GrFormNextLink } from 'react-icons/gr'
 import { IconContext } from "react-icons/"
-
+import imageUrlBuilder from '@sanity/image-url'
+import client from "../client";
 
 const Wrapper = styled.div`
-   
-    
+
+
     justify-content: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -32,7 +33,7 @@ const Title = styled.h2`
     margin: 25px;
     color: #242424;
     font-weight: 400;
- 
+
 `
 
 const Data = styled.p`
@@ -42,20 +43,20 @@ const Data = styled.p`
     margin: 25px;
     margin-bottom: 20px;
     color: #6b6768;
-    
+
 `
 
 const StyledSpan = styled.span`
 
     padding-left:10px ;
     color: #6b6768;
-    
-    
+
+
 
 `
 
 const IconWrapper = styled.span`
-    
+
     padding-left: 30px;
 
 `
@@ -64,41 +65,44 @@ const ReadMore = styled.div`
 
     display: flex;
     flex-direction: row;
-   
+
 `
 
-
+function urlFor(source) {
+  return imageUrlBuilder(client).image(source)
+}
 
 export const BlogCard = (props) => {
 
 
-    return (
-        <>
-            <Wrapper>
-            <Image src="/images/blog.jpg" width="400px" height="300px" ></Image>
-            <TextWrapper>
-                <Title>
-                <a href="./Blog"> THE ULTIMATE GUIDE TO PRODUCT MARKETING 2019 </a>
-                
-                </Title>
-                <Data>
-                    Lorem ipsum dolor sit amnsectetur adpisici do eiusmod tempor incidt ut labore et dolore gna aliquat enim...
-                </Data>
-                <ReadMore>
-                <IconWrapper>
-                        <IconContext.Provider value={{ size: "1.3em" }}>
-                        <GrFormNextLink/>
-                        </IconContext.Provider>
-                </IconWrapper>
-                <StyledSpan><a href="./Blog">READ MORE</a></StyledSpan>
+  return (
+    <>
+      <Wrapper>
+        {props.mainImage && (
+          <img src={urlFor(props.mainImage).url()} width="400px" height="300px" />
+        )}
+        <TextWrapper>
+          <Title>
+            <Link href="/post/[slug]" as={`/post/${props.slug.current}`}><a>{props.title}</a></Link>
+          </Title>
+          <Data>
+            Lorem ipsum dolor sit amnsectetur adpisici do eiusmod tempor incidt ut labore et dolore gna aliquat enim...
+          </Data>
+          <ReadMore>
+            <IconWrapper>
+              <IconContext.Provider value={{ size: "1.3em" }}>
+                <GrFormNextLink />
+              </IconContext.Provider>
+            </IconWrapper>
+            <StyledSpan><Link href="/post/[slug]" as={`/post/${props.slug.current}`}><a>READ MORE</a></Link ></StyledSpan>
 
-                </ReadMore>
-                
-                 </TextWrapper>
-            </Wrapper>
+          </ReadMore>
 
-        </>
+        </TextWrapper>
+      </Wrapper>
 
-    )
+    </>
+
+  )
 
 }
