@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import styled from "styled-components";
 
+import React,{useState,useRef} from "react";
+import styled from "styled-components";
+import {BsEye,BsEyeSlash} from "react-icons/bs";
 
 
 
@@ -8,9 +9,15 @@ const Wrapper = styled.div`
 
     display: flex;
     flex-direction: column;
-    padding: 25px 25px 5px 25px;
-    border-bottom: 1px solid #e8eeeb;
-
+    padding: 10px 30px 5px 30px;
+    border-bottom: 4px solid #e8eeeb;
+    width: 80%;
+    margin:auto;
+    @media(max-width:1100px)
+    {
+        width:95%;
+    }
+    
 `
 const StyledButton = styled.div`
 
@@ -34,46 +41,42 @@ const TextWrapper = styled.div`
 
     display: flex;
     padding-top:20px;
-    align-items: space-between;
-    gap:350px;
-    @media(max-width:945px)
-    {
-       gap: 150px;
-    }
-    @media(max-width:780px)
-    {
-       gap: 50px;
-    }
-    @media(max-width:680px)
+    justify-content: space-between;
+    width:100%;
+   
+    @media(max-width:690px)
     {
        flex-direction: column;
-       gap: 5px;
     }
 `
+
+
 const RightWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    ${'' /* margin-left:300px; */}
 `
 const RightText = styled.div`
    font-size: 13px;
     font-style: italic;
     font-weight: 500;
     color: #a28eb2;
-
 `
 
 
 const AnswerWrapper = styled.div`
 
-    display: ${props => props.active ? "block" : "none"};
-    user-select: none;
 
+    display: ${props => props.active ? "block" : "none"};
+
+    user-select: none;
+    background: rgb(239, 230, 232);
+  
 `
 
 
-const Answer = styled.div`
 
+const Answer  = styled.li`
+    padding:25px;
 
 `
 const Date = styled.div`
@@ -81,41 +84,67 @@ const Date = styled.div`
     font-size: 13px;
     font-weight: 400;
     color: #595959;
+`
 
+const StyledEye = styled(BsEye)`
+
+    align-self: flex-end;
+    margin-top:-8px;
+    display: ${props=>props.active?"block":"none"};
+    opacity:${props=>props.active?1:0};
+    transition: opacity 1s;
+`
+
+const StyledBsEyeSlash = styled(BsEyeSlash)`
+    align-self: flex-end;
+    margin-top:-8px;
+    display: ${props=>props.active?"none":"block"};
+    opacity:${props=>props.active?0:1};
+    transition: opacity 1s;
 `
 
 
-
-
 export const AccordianItem = (props) => {
-  const [setActive, setAciveState] = useState("")
 
+    const [setActive,setAciveState] = useState("")
+    const content = useRef(null);
+    const [setHeight, setHeightState] = useState("0px");
 
+    const {question,answer} = props.faq;
 
-  const { question, answer } = props.faq;
-  return (
+    function toggleAccordion() {
+        setAciveState(!setActive);
+        setHeightState(
+          setActive == false ? "0px" : `${content.current.scrollHeight}px`
+        );
+      }
+    
+    return(
 
-    <Wrapper>
-      <StyledButton onClick={() => { console.log("Ethe"); setAciveState(!setActive) }} active={setActive}>
-        <Date>Jan 2003 May 2007</Date>
-        <TextWrapper>
-          <Title>    {question}</Title>
-          <RightWrapper>
-            <RightText>
-              George Mason University, Fairfax
-            </RightText>
-          </RightWrapper>
-        </TextWrapper>
+       <Wrapper>
+            <StyledButton onClick={toggleAccordion} active = {setActive}>
+            <Date>Jan 2003 May 2007</Date>
+            <TextWrapper> 
+            <Title>    {question}</Title>
+            <RightWrapper>
+            <StyledBsEyeSlash active = {setActive}/> 
+             <StyledEye active = {setActive}/> 
+                <RightText>
+                    George Mason University, Fairfax
+                </RightText>
+            </RightWrapper>
+            </TextWrapper>
+           
+        
+            {/* <StyledSpan>-</StyledSpan> */}
+            </StyledButton>
+            <AnswerWrapper ref={content} className={setActive ? 'active' :"closed"} height= {setHeight} active={setActive}>
 
+                <Answer>{answer}</Answer>
+            </AnswerWrapper>
+       </Wrapper>
+    )
 
-        {/* <StyledSpan>-</StyledSpan> */}
-      </StyledButton>
-      <AnswerWrapper active={setActive}>
-
-        <Answer>{answer}</Answer>
-      </AnswerWrapper>
-    </Wrapper>
-  )
 }
 
 

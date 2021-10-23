@@ -10,15 +10,20 @@ const AccordianWrapper = styled.div`
     display:flex;
     flex-direction:column;
     padding: 40px;
-    align-items:center;
-    margin:auto
+
 `
 
-const StyledHeading = styled(Heading)`
+const HeadingWrapper = styled.div`
 
-    ${'' /* align-self:baseline; */}
-    ${'' /* margin-left:200px; */}
+    width:80%;
+    margin:auto;
+    padding-left:20px;
+    @media(max-width:1100px)
+    {
+        width:95%;
+    }
 `
+
 
 export const Accordian = (props) => {
 
@@ -33,3 +38,4 @@ export const Accordian = (props) => {
     </>
   )
 }
+
