@@ -5,13 +5,13 @@ export const faqs = [
         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
     },
     {
-        question: "BUSINESS & MANAGEMENT",
+        question: "IB DIPLOMA PROGRAM",
         answer:
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+          "Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus phasellus viverra nulla ut metus varius laoreet quisque rutrum.",
     },
     {
-    question: "BUSINESS & MANAGEMENT",
+    question: "PSYCHOLOGY AND SOCIOLOGY",
     answer:
-        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+        "gDeveloped the skills needed to grow revenue by delivering differentiated client experiences",
       },
   ];
