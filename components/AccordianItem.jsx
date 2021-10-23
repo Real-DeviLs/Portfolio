@@ -1,3 +1,4 @@
+
 import React,{useState,useRef} from "react";
 import styled from "styled-components";
 import {BsEye,BsEyeSlash} from "react-icons/bs";
@@ -64,17 +65,19 @@ const RightText = styled.div`
 
 const AnswerWrapper = styled.div`
 
-   
-    transition: all 0.2s;
-    display: ${props=>props.active?"block":"none"};
+
+    display: ${props => props.active ? "block" : "none"};
+
     user-select: none;
     background: rgb(239, 230, 232);
   
 `
 
 
+
 const Answer  = styled.li`
     padding:25px;
+
 `
 const Date = styled.div`
 
@@ -102,6 +105,7 @@ const StyledBsEyeSlash = styled(BsEyeSlash)`
 
 
 export const AccordianItem = (props) => {
+
     const [setActive,setAciveState] = useState("")
     const content = useRef(null);
     const [setHeight, setHeightState] = useState("0px");
@@ -140,6 +144,7 @@ export const AccordianItem = (props) => {
             </AnswerWrapper>
        </Wrapper>
     )
+
 }
 
 

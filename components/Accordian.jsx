@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { faqs } from "../utils/data";
 import { AccordianItem } from "./AccordianItem";
-import {Heading} from "./generic";
+import { Heading } from "./generic";
 
 
 const AccordianWrapper = styled.div`
@@ -25,18 +25,17 @@ const HeadingWrapper = styled.div`
 `
 
 
-export const Accordian = (props)=>{
+export const Accordian = (props) => {
 
-    return(
-        <>
-        <AccordianWrapper>
-            <HeadingWrapper>
-            <Heading>Education</Heading>
-            </HeadingWrapper>
-            {faqs.map((faq,index)=>(
-                <AccordianItem key={index} faq={faq}></AccordianItem>
-            ))}
-        </AccordianWrapper>
-        </>
-    )
+  return (
+    <>
+      <AccordianWrapper>
+        <StyledHeading>Education</StyledHeading>
+        {faqs.map((faq, index) => (
+          <AccordianItem key={index} faq={faq}></AccordianItem>
+        ))}
+      </AccordianWrapper>
+    </>
+  )
 }
+
