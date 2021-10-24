@@ -1,8 +1,8 @@
-
-import React,{useState,useRef} from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import {BsEye,BsEyeSlash} from "react-icons/bs";
-
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+import BlockContent from '@sanity/block-content-to-react'
+import client from "../client";
 
 
 const Wrapper = styled.div`
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     {
         width:95%;
     }
-    
+
 `
 const StyledButton = styled.div`
 
@@ -43,7 +43,7 @@ const TextWrapper = styled.div`
     padding-top:20px;
     justify-content: space-between;
     width:100%;
-   
+
     @media(max-width:690px)
     {
        flex-direction: column;
@@ -70,12 +70,12 @@ const AnswerWrapper = styled.div`
 
     user-select: none;
     background: rgb(239, 230, 232);
-  
+
 `
 
 
 
-const Answer  = styled.li`
+const Answer = styled.li`
     padding:25px;
 
 `
@@ -90,60 +90,64 @@ const StyledEye = styled(BsEye)`
 
     align-self: flex-end;
     margin-top:-8px;
-    display: ${props=>props.active?"block":"none"};
-    opacity:${props=>props.active?1:0};
+    display: ${props => props.active ? "block" : "none"};
+    opacity:${props => props.active ? 1 : 0};
     transition: opacity 1s;
 `
 
 const StyledBsEyeSlash = styled(BsEyeSlash)`
     align-self: flex-end;
     margin-top:-8px;
-    display: ${props=>props.active?"none":"block"};
-    opacity:${props=>props.active?0:1};
+    display: ${props => props.active ? "none" : "block"};
+    opacity:${props => props.active ? 0 : 1};
     transition: opacity 1s;
 `
 
 
 export const AccordianItem = (props) => {
 
-    const [setActive,setAciveState] = useState("")
-    const content = useRef(null);
-    const [setHeight, setHeightState] = useState("0px");
+  const [setActive, setAciveState] = useState("")
+  const content = useRef(null);
+  const [setHeight, setHeightState] = useState("0px");
 
-    const {question,answer} = props.faq;
+  const { dateStart, dateEnd, institute, courseName, details } = props.education;
 
-    function toggleAccordion() {
-        setAciveState(!setActive);
-        setHeightState(
-          setActive == false ? "0px" : `${content.current.scrollHeight}px`
-        );
-      }
-    
-    return(
+  function toggleAccordion() {
+    setAciveState(!setActive);
+    setHeightState(
+      setActive == false ? "0px" : `${content.current.scrollHeight}px`
+    );
+  }
 
-       <Wrapper>
-            <StyledButton onClick={toggleAccordion} active = {setActive}>
-            <Date>Jan 2003 May 2007</Date>
-            <TextWrapper> 
-            <Title>    {question}</Title>
-            <RightWrapper>
-            <StyledBsEyeSlash active = {setActive}/> 
-             <StyledEye active = {setActive}/> 
-                <RightText>
-                    George Mason University, Fairfax
-                </RightText>
-            </RightWrapper>
-            </TextWrapper>
-           
-        
-            {/* <StyledSpan>-</StyledSpan> */}
-            </StyledButton>
-            <AnswerWrapper ref={content} className={setActive ? 'active' :"closed"} height= {setHeight} active={setActive}>
+  return (
 
-                <Answer>{answer}</Answer>
-            </AnswerWrapper>
-       </Wrapper>
-    )
+    <Wrapper>
+      <StyledButton onClick={toggleAccordion} active={setActive}>
+        <Date>{dateStart} {dateEnd}</Date>
+        <TextWrapper>
+          <Title>    {courseName}</Title>
+          <RightWrapper>
+            <StyledBsEyeSlash active={setActive} />
+            <StyledEye active={setActive} />
+            <RightText>
+              {institute}
+            </RightText>
+          </RightWrapper>
+        </TextWrapper>
+
+
+        {/* <StyledSpan>-</StyledSpan> */}
+      </StyledButton>
+      <AnswerWrapper ref={content} className={setActive ? 'active' : "closed"} height={setHeight} active={setActive}>
+
+        <Answer><BlockContent
+          blocks={details}
+          imageOptions={{ w: 320, h: 240, fit: 'max' }}
+          {...client.config()}
+        /></Answer>
+      </AnswerWrapper>
+    </Wrapper>
+  )
 
 }
 

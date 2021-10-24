@@ -5,7 +5,9 @@ import { Heading, Curved } from "./generic";
 import { BsPerson, BsTelephone, BsCalendarWeek, BsGlobe } from 'react-icons/bs'
 import { AiOutlineMail } from 'react-icons/ai'
 import { FaRegAddressBook } from 'react-icons/fa'
-
+import imageUrlBuilder from '@sanity/image-url'
+import BlockContent from '@sanity/block-content-to-react'
+import client from "../client";
 
 const StyledCircle = styled.div`
 
@@ -104,6 +106,9 @@ const Description = styled.p`
     }
 
 `
+function urlFor(source) {
+  return imageUrlBuilder(client).image(source)
+}
 
 export const PersonalInfo = (props) => {
   return (
@@ -116,41 +121,45 @@ export const PersonalInfo = (props) => {
         <TextWrapper>
           <LeftText>
             <TagWrapper>
-              <BsPerson /> <StyledSpan>Mohit Kumar</StyledSpan>
+              <BsPerson /> <StyledSpan>{props.personalDetails.name}</StyledSpan>
 
             </TagWrapper>
             <TagWrapper>
-              <BsCalendarWeek /> <StyledSpan>04.09.1980</StyledSpan>
+              <BsCalendarWeek /> <StyledSpan>{props.personalDetails.birthDay}</StyledSpan>
 
             </TagWrapper>
             <TagWrapper>
-              <AiOutlineMail /> <StyledSpan>kmohit@nitj.ac.in</StyledSpan>
+              <AiOutlineMail /> <StyledSpan>{props.personalDetails.email}</StyledSpan>
 
             </TagWrapper>
           </LeftText>
           <RightText>
             <TagWrapper>
-              <BsTelephone /> <StyledSpan>Mohit Kumar</StyledSpan>
+              <BsTelephone /> <StyledSpan>{props.personalDetails.phone}</StyledSpan>
             </TagWrapper>
             <TagWrapper>
-              <FaRegAddressBook /> <StyledSpan>NIT Jalandhar</StyledSpan>
+              <FaRegAddressBook /> <StyledSpan>{props.personalDetails.location}</StyledSpan>
             </TagWrapper>
             <TagWrapper>
-              <BsGlobe /> <StyledSpan>MohitKumar.com</StyledSpan>
+              <BsGlobe /> <StyledSpan>{props.personalDetails.website}</StyledSpan>
             </TagWrapper>
           </RightText>
         </TextWrapper>
 
         <Description>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis itaque quidem nobis eaque? Earum culpa ullam dolore cumque sint eum explicabo laborum voluptatem! Repellendus nihil eaque distinctio enim corporis eveniet inventore dignissimos, recusandae quidem cupiditate perferendis culpa nisi fugit ratione tempora, quis ut placeat dolores reprehenderit illum totam aut. Quia quisquam adipisci voluptatum quidem atque? Perspiciatis voluptatum dolorem nihil corrupti magnam deleniti laborum placeat molestiae atque, quibusdam esse vel qui sapiente ex! Corrupti quibusdam aperiam saepe, adipisci distinctio pariatur fugiat exercitationem fugit harum. Repellat reiciendis iste eos voluptate veniam neque assumenda sit quas cupiditate, possimus rem totam. Necessitatibus, aspernatur voluptates.
+          <BlockContent
+            blocks={props.personalDetails.bio}
+            imageOptions={{ w: 320, h: 240, fit: 'max' }}
+            {...client.config()}
+          />
         </Description>
-        <Image src="/images/sign.png" width="300px" height="50px"></Image>
+        <img src={urlFor(props.personalDetails.signature).url()} width="300px" height="50px" />
       </LeftWrapper>
       <RightWrapper>
         <StyledCircle >
           <Curved text="Hello World Hey I AM MK " ></Curved>
         </StyledCircle>
-        <Image src="/images/photo.jpg" width="350px" height="600px" ></Image>
+        <img src={urlFor(props.personalDetails.image).url()} width="350px" height="600px" />
       </RightWrapper>
     </Wrapper>
   )

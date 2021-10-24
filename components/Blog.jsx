@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import imageUrlBuilder from '@sanity/image-url'
+import BlockContent from '@sanity/block-content-to-react'
+import client from "../client";
 
 const Box = styled.div`
     @media only screen and (min-width: 1025px) {
@@ -27,7 +30,9 @@ const Heading = styled.h1`
 `
 
 const Image = styled.img`
-    max-width: 100%;
+    @media only screen and (min-width: 1025px) {
+    width: 1000px;
+    }
     height: auto;
     vertical-align: middle;
     border-style: none;
@@ -40,14 +45,23 @@ const Text = styled.p`
     font-weight: 400;
     color: #6b6768;
 `
+function urlFor(source) {
+  return imageUrlBuilder(client).image(source)
+}
 
-export const Blog = () => {
-    return (
-        <Box>
-            <Date>January 14, 2020</Date>
-            <Heading>The ultimate guide to product marketing 2019</Heading>
-            <Image src="/images/blog.jpg" alt="blog"></Image>
-            <Text> Lorem ipsum dolor sit amnsectetur adpisici do eiusmod tempor incidt ut labore et dolore gna aliquat enim ad minim veniam quis nosexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Lorem ipsum dolor sit amet, consectetur adipisicing elit,o eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ul ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Seperspiciatis unde omnis iste natus error sit voluptatem accusantium doloremquedantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</Text>
-        </Box>
-    )
+export const Blog = (props) => {
+  return (
+    <Box>
+      <Date>{props.publishedAt}</Date>
+      <Heading>{props.title}</Heading>
+      {props.mainImage && (
+        <Image src={urlFor(props.mainImage).url()} alt="blog"></Image>
+      )}
+      <Text> <BlockContent
+        blocks={props.body}
+        imageOptions={{ w: 320, h: 240, fit: 'max' }}
+        {...client.config()}
+      /></Text>
+    </Box>
+  )
 }

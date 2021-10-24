@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/client": "^2.21.3",
+    "groq": "^2.15.0",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",

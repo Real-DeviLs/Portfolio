@@ -30,9 +30,9 @@ export const Accordian = (props) => {
   return (
     <>
       <AccordianWrapper>
-        <StyledHeading>Education</StyledHeading>
-        {faqs.map((faq, index) => (
-          <AccordianItem key={index} faq={faq}></AccordianItem>
+        <Heading>Education</Heading>
+        {props.educationDetails.map((education, index) => (
+          <AccordianItem key={index} education={education}></AccordianItem>
         ))}
       </AccordianWrapper>
     </>
