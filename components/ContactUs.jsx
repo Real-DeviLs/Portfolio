@@ -34,7 +34,11 @@ const TagText = styled.h4`
 const LeftWrapper = styled.div`
 
     padding:25px 70px;
-
+    @media(max-width:1100px)
+    {
+      padding:25px 20px;
+       
+    }
 `
 
 const RightWrapper = styled.div`
