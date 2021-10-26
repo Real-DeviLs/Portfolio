@@ -9,18 +9,25 @@ import client from "../client";
 const Wrapper = styled.div`
 
 
-    justify-content: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 40px 80px;
-    background-color: #efe6e8;
-
+    ${'' /* margin: 40px 80px; */}
+    padding:50px;
+    
+    @media(max-width: 750px)
+    {
+      grid-template-columns: 1fr;
+      margin:40px 20px;
+      padding:0px;
+    }
 
 `
 
 const TextWrapper = styled.div`
 
     text-align: left;
+    background-color: #efe6e8;
+
     line-height: 30px;
     color: #6b6768;
     background-color: backgroundLight;
@@ -68,6 +75,22 @@ const ReadMore = styled.div`
 
 `
 
+const ImageWrapper = styled.div`
+
+   
+    
+`
+
+const StyledImage = styled.img`
+
+
+    height: 100%;
+    width: 100%;
+
+`
+
+
+
 function urlFor(source) {
   return imageUrlBuilder(client).image(source)
 }
@@ -78,9 +101,11 @@ export const BlogCard = (props) => {
   return (
     <>
       <Wrapper>
+      <ImageWrapper>
         {props.mainImage && (
-          <img src={urlFor(props.mainImage).url()} width="400px" height="300px" />
+          <StyledImage src={urlFor(props.mainImage).url()} />
         )}
+        </ImageWrapper>
         <TextWrapper>
           <Title>
             <Link href="/post/[slug]" as={`/post/${props.slug.current}`}><a>{props.title}</a></Link>

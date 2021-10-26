@@ -9,8 +9,12 @@ const AccordianWrapper = styled.div`
 
     display:flex;
     flex-direction:column;
-    padding: 40px;
-
+    padding: 40px;  
+    @media(max-width: 750px)
+    {
+     
+      padding:0px;
+    }
 `
 
 const HeadingWrapper = styled.div`
@@ -30,7 +34,9 @@ export const Accordian = (props) => {
   return (
     <>
       <AccordianWrapper>
+      <HeadingWrapper>
         <Heading>Education</Heading>
+        </HeadingWrapper>
         {props.educationDetails.map((education, index) => (
           <AccordianItem key={index} education={education}></AccordianItem>
         ))}

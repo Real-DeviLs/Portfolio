@@ -42,14 +42,17 @@ const TagWrapper = styled.div`
     color: #595959;
     line-height: 1;
     padding-top:15px;
+   
 `
 
 const LeftText = styled.div`
      padding: 5px 50px 5px 0px;
      @media(max-width:${props => props.theme.breakpoint.tablet})
-    {
+    {   
+        margin:auto;
         padding: 5px 5px 5px 20px;
     }
+    
 
 `
 
@@ -60,11 +63,18 @@ const RightText = styled.div`
        margin:auto;
        padding: 5px 5px 5px 20px;
     }
+  
 
 `
 
 const TextWrapper = styled.div`
         display: flex;
+
+        @media(max-width:750px)
+       {  
+         
+         flex-direction: column;
+        }
 
 `
 
@@ -138,6 +148,8 @@ export const PersonalInfo = (props) => {
               <BsTelephone /> <StyledSpan>{props.personalDetails.phone}</StyledSpan>
             </TagWrapper>
             <TagWrapper>
+
+
               <FaRegAddressBook /> <StyledSpan>{props.personalDetails.location}</StyledSpan>
             </TagWrapper>
             <TagWrapper>
