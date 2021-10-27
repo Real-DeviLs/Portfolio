@@ -72,7 +72,7 @@ export default function Home({ data }) {
       <Hero></Hero>
       <PersonalInfo personalDetails={data.personalDetails}></PersonalInfo>
       <Biography></Biography>
-      <Accordian educationDetails={data.educationDetails}></Accordian>
+      <Accordian heading="Education" items={data.educationDetails}></Accordian>
       <div>
 
 

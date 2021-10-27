@@ -110,7 +110,7 @@ export const AccordianItem = (props) => {
   const content = useRef(null);
   const [setHeight, setHeightState] = useState("0px");
 
-  const { dateStart, dateEnd, institute, courseName, details } = props.education;
+  console.log(props.item);
 
   function toggleAccordion() {
     setAciveState(!setActive);
@@ -123,14 +123,14 @@ export const AccordianItem = (props) => {
 
     <Wrapper>
       <StyledButton onClick={toggleAccordion} active={setActive}>
-        <Date>{dateStart} {dateEnd}</Date>
+        <Date>{props.date1} {props.date2}</Date>
         <TextWrapper>
-          <Title>    {courseName}</Title>
+          <Title>    {props.title}</Title>
           <RightWrapper>
             <StyledBsEyeSlash active={setActive} />
             <StyledEye active={setActive} />
             <RightText>
-              {institute}
+              {props.subTitle}
             </RightText>
           </RightWrapper>
         </TextWrapper>
@@ -141,7 +141,7 @@ export const AccordianItem = (props) => {
       <AnswerWrapper ref={content} className={setActive ? 'active' : "closed"} height={setHeight} active={setActive}>
 
         <Answer><BlockContent
-          blocks={details}
+          blocks={props.details}
           imageOptions={{ w: 320, h: 240, fit: 'max' }}
           {...client.config()}
         /></Answer>
