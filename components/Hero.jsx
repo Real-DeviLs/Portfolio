@@ -117,9 +117,9 @@ export const Hero = () => {
         <SocialSection>
           <WriteHeading>WRITE TO</WriteHeading>
           <Mail href="mailto:george@qode.com">george@qode.com</Mail>
-          <SocialLink href="#">FB</SocialLink>
-          <SocialLink href="#">TW</SocialLink>
-          <SocialLink href="#">LN</SocialLink>
+          <SocialLink href="publications">Publications</SocialLink>
+          {/* <SocialLink href="#">TW</SocialLink> */}
+          {/* <SocialLink href="#">LN</SocialLink> */}
         </SocialSection>
       </BottomBox>
     </Box >

@@ -35,11 +35,21 @@ export const Accordian = (props) => {
     <>
       <AccordianWrapper>
       <HeadingWrapper>
-        <Heading>Education</Heading>
+        <Heading>{ props.heading }</Heading>
         </HeadingWrapper>
-        {props.educationDetails.map((education, index) => (
-          <AccordianItem key={index} education={education}></AccordianItem>
-        ))}
+        {props.items.map((item, index) => {
+          
+          let date1 = item.dateStart;
+          let date2 = item.dateEnd;
+          let details = item.details;
+          let title  = item.courseName;
+          let subTitle = item.institute;
+          return(
+          
+            <AccordianItem key={index} date1={date1} date2={date2} details={details} title={title} subTitle={subTitle}></AccordianItem>
+            
+          )
+        })}
       </AccordianWrapper>
     </>
   )
