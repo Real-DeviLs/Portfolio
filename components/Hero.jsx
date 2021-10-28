@@ -64,7 +64,7 @@ const SocialSection = styled.div`
     overflow: hidden;
     color: rgb(255, 255, 255);
     display: flex;
-    gap: 55px;
+    gap: 40px;
     align-items:center;
     @media (max-width: 768px) {
         gap: 3px;
@@ -104,11 +104,11 @@ const SocialLink = styled.a`
     text-transform: uppercase;
 `
 
-export const Hero = () => {
+export const Hero = (props) => {
   return (
     <Box>
       <TextArea>
-        <Heading>A motivational speaker with over 10 years of experience in life coaching talks.</Heading>
+        <Heading>{ props.heading }</Heading>
         <ParaText>
           <Para>I am a self-driven, highly motivated professional, passionate about acquiring new skills. My flexibility and open-mindedness are reflected by my ease of assimilating to new work environments.</Para>
         </ParaText>
@@ -118,6 +118,7 @@ export const Hero = () => {
           <WriteHeading>WRITE TO</WriteHeading>
           <Mail href="mailto:george@qode.com">george@qode.com</Mail>
           <SocialLink href="publications">Publications</SocialLink>
+          <SocialLink href="events">events</SocialLink>
           {/* <SocialLink href="#">TW</SocialLink> */}
           {/* <SocialLink href="#">LN</SocialLink> */}
         </SocialSection>
