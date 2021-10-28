@@ -1,9 +1,5 @@
-import { PersonalInfo } from '../components'
-import { Hero } from '../components'
-import { Accordian } from '../components'
-import { Biography } from '../components'
-import { ContactUs } from '../components'
-import { BlogCard } from '../components'
+import { PersonalInfo,ContactUs,Hero,Accordian,Biography,BlogCard } from '../components'
+
 import { Heading } from '../components/generic'
 import styled from "styled-components";
 import client from "../client";
@@ -56,7 +52,23 @@ export async function getStaticProps() {
   const posts = await client.fetch(groq`
       *[_type == "post" && publishedAt < now()]|order(publishedAt desc)
     `);
-  const data = { personalDetails, educationDetails, posts };
+  
+  let educationArray = [];
+  educationDetails.map((item)=>{
+    
+    
+    const eduObject = {
+      date1 : item.dateStart,
+      date2 : item.dateEnd,
+      details : item.details,
+      title  : item.courseName,
+      subTitle : item.institute,
+      }
+
+  educationArray.push(eduObject);
+  })
+  
+  const data = { personalDetails, educationArray, posts };
 
   return {
     props: {
@@ -69,10 +81,11 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   return (
     <>
-      <Hero></Hero>
+      <Hero heading="Lorem ipsum dolle lalo "></Hero>
       <PersonalInfo personalDetails={data.personalDetails}></PersonalInfo>
       <Biography></Biography>
-      <Accordian heading="Education" items={data.educationDetails}></Accordian>
+      <Accordian heading="Education" items={data.educationArray}>
+      </Accordian>
       <div>
 
 

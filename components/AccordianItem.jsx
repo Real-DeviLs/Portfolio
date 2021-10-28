@@ -123,14 +123,14 @@ export const AccordianItem = (props) => {
 
     <Wrapper>
       <StyledButton onClick={toggleAccordion} active={setActive}>
-        <Date>{props.date1} {props.date2}</Date>
+        <Date>{props.data.date1} {props.data.date2}</Date>
         <TextWrapper>
-          <Title>    {props.title}</Title>
+          <Title>    {props.data.title}</Title>
           <RightWrapper>
             <StyledBsEyeSlash active={setActive} />
             <StyledEye active={setActive} />
             <RightText>
-              {props.subTitle}
+              {props.data.subTitle}
             </RightText>
           </RightWrapper>
         </TextWrapper>
@@ -141,7 +141,7 @@ export const AccordianItem = (props) => {
       <AnswerWrapper ref={content} className={setActive ? 'active' : "closed"} height={setHeight} active={setActive}>
 
         <Answer><BlockContent
-          blocks={props.details}
+          blocks={props.data.details}
           imageOptions={{ w: 320, h: 240, fit: 'max' }}
           {...client.config()}
         /></Answer>

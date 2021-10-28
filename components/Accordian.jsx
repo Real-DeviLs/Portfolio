@@ -37,16 +37,10 @@ export const Accordian = (props) => {
       <HeadingWrapper>
         <Heading>{ props.heading }</Heading>
         </HeadingWrapper>
-        {props.items.map((item, index) => {
-          
-          let date1 = item.dateStart;
-          let date2 = item.dateEnd;
-          let details = item.details;
-          let title  = item.courseName;
-          let subTitle = item.institute;
+        {props.items.map((item, index) => { 
           return(
           
-            <AccordianItem key={index} date1={date1} date2={date2} details={details} title={title} subTitle={subTitle}></AccordianItem>
+            <AccordianItem key={index} data={item}></AccordianItem>
             
           )
         })}
