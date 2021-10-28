@@ -119,6 +119,7 @@ export const Hero = (props) => {
           <Mail href="mailto:george@qode.com">george@qode.com</Mail>
           <SocialLink href="publications">Publications</SocialLink>
           <SocialLink href="events">events</SocialLink>
+          <SocialLink href="mentorship">Mentorship</SocialLink>
           {/* <SocialLink href="#">TW</SocialLink> */}
           {/* <SocialLink href="#">LN</SocialLink> */}
         </SocialSection>
