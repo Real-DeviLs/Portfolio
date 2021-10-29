@@ -53,7 +53,7 @@ const BottomBox = styled.div`
     height: 110px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    @media (max-width: 768px) {
+    @media (max-width: 1100px) {
       grid-template-columns: 1fr;
     }
 `
@@ -81,6 +81,11 @@ const WriteHeading = styled.h1`
     font-size: 16px;
     color: rgb(255, 255, 255);
     padding: 10px;
+    @media (max-width: 768px) {
+    font-weight: 300;
+    font-size: 10px;
+    padding: 7px;
+    }
 `
 
 const Mail = styled.a`
@@ -92,6 +97,10 @@ const Mail = styled.a`
     font-size: 19px;
     color: rgba(255, 255, 255, 0.5);
     padding: 10px;
+    @media (max-width: 768px) {
+      font-size: 10px;
+      font-weight: 200;
+    }
 `
 
 const SocialLink = styled.a`
@@ -101,24 +110,27 @@ const SocialLink = styled.a`
     letter-spacing: .1em;
     line-height: 22px;
     color: rgba(255, 255, 255, .5);
-    text-transform: uppercase;
+    @media (max-width: 768px) {
+        font-size: 14px;
+        font-weight: 200;
+      }
 `
 
 export const Hero = (props) => {
   return (
     <Box>
       <TextArea>
-        <Heading>{ props.heading }</Heading>
+        <Heading>{props.heading}</Heading>
         <ParaText>
           <Para>I am a self-driven, highly motivated professional, passionate about acquiring new skills. My flexibility and open-mindedness are reflected by my ease of assimilating to new work environments.</Para>
         </ParaText>
       </TextArea>
       <BottomBox>
         <SocialSection>
-          <WriteHeading>WRITE TO</WriteHeading>
-          <Mail href="mailto:george@qode.com">george@qode.com</Mail>
           <SocialLink href="publications">Publications</SocialLink>
-          <SocialLink href="events">events</SocialLink>
+          <SocialLink href="events">Events</SocialLink>
+          <WriteHeading>WRITE TO</WriteHeading>
+          <Mail href="mailto:george@qode.com">{props.email}</Mail>
           {/* <SocialLink href="#">TW</SocialLink> */}
           {/* <SocialLink href="#">LN</SocialLink> */}
         </SocialSection>

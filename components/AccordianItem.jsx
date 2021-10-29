@@ -110,7 +110,6 @@ export const AccordianItem = (props) => {
   const content = useRef(null);
   const [setHeight, setHeightState] = useState("0px");
 
-  console.log(props.item);
 
   function toggleAccordion() {
     setAciveState(!setActive);
