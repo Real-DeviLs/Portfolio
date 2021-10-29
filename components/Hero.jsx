@@ -64,54 +64,23 @@ const SocialSection = styled.div`
     overflow: hidden;
     color: rgb(255, 255, 255);
     display: flex;
-    gap: 40px;
+    gap: 80px;
+    justify-content: center;
     align-items:center;
     @media (max-width: 768px) {
-        gap: 3px;
-    }
-`
-
-const WriteHeading = styled.h1`
-    font-family: "IBM Plex Mono";
-    text-transform: uppercase;
-    text-align: left;
-    line-height: 22px;
-    letter-spacing: 1px;
-    font-weight: 700;
-    font-size: 16px;
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    @media (max-width: 768px) {
-    font-weight: 300;
-    font-size: 10px;
-    padding: 7px;
-    }
-`
-
-const Mail = styled.a`
-    font-family: "IBM Plex Mono";
-    text-align: left;
-    line-height: 33px;
-    letter-spacing: 0px;
-    font-weight: 400;
-    font-size: 19px;
-    color: rgba(255, 255, 255, 0.5);
-    padding: 10px;
-    @media (max-width: 768px) {
-      font-size: 10px;
-      font-weight: 200;
+        gap: 60px;
     }
 `
 
 const SocialLink = styled.a`
     padding: 10px;
-    font-size: 15px;
+    font-size: 35px;
     font-weight: 500;
     letter-spacing: .1em;
     line-height: 22px;
     color: rgba(255, 255, 255, .5);
     @media (max-width: 768px) {
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 200;
       }
 `
@@ -129,10 +98,6 @@ export const Hero = (props) => {
         <SocialSection>
           <SocialLink href="publications">Publications</SocialLink>
           <SocialLink href="events">Events</SocialLink>
-          <WriteHeading>WRITE TO</WriteHeading>
-          <Mail href="mailto:george@qode.com">{props.email}</Mail>
-          {/* <SocialLink href="#">TW</SocialLink> */}
-          {/* <SocialLink href="#">LN</SocialLink> */}
         </SocialSection>
       </BottomBox>
     </Box >

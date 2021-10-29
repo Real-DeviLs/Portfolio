@@ -64,7 +64,7 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   return (
     <>
-      <Hero heading="Lorem ipsum dolor sit amnsectetur adpisici do eiusmod tempor incidt ut" email={data.personalDetails.email}></Hero>
+      <Hero heading="Lorem ipsum dolor sit amnsectetur adpisici do eiusmod tempor incidt ut" ></Hero>
       <PersonalInfo personalDetails={data.personalDetails}></PersonalInfo>
       <Biography></Biography>
       <Accordian heading="Education" items={data.educationArray}>
