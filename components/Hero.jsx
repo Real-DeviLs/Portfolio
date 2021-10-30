@@ -53,7 +53,7 @@ const BottomBox = styled.div`
     height: 110px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    @media (max-width: 768px) {
+    @media (max-width: 1100px) {
       grid-template-columns: 1fr;
     }
 `
@@ -64,60 +64,40 @@ const SocialSection = styled.div`
     overflow: hidden;
     color: rgb(255, 255, 255);
     display: flex;
-    gap: 40px;
+    gap: 80px;
+    justify-content: center;
     align-items:center;
     @media (max-width: 768px) {
-        gap: 3px;
+        gap: 60px;
     }
-`
-
-const WriteHeading = styled.h1`
-    font-family: "IBM Plex Mono";
-    text-transform: uppercase;
-    text-align: left;
-    line-height: 22px;
-    letter-spacing: 1px;
-    font-weight: 700;
-    font-size: 16px;
-    color: rgb(255, 255, 255);
-    padding: 10px;
-`
-
-const Mail = styled.a`
-    font-family: "IBM Plex Mono";
-    text-align: left;
-    line-height: 33px;
-    letter-spacing: 0px;
-    font-weight: 400;
-    font-size: 19px;
-    color: rgba(255, 255, 255, 0.5);
-    padding: 10px;
 `
 
 const SocialLink = styled.a`
     padding: 10px;
-    font-size: 15px;
+    font-size: 35px;
     font-weight: 500;
     letter-spacing: .1em;
     line-height: 22px;
     color: rgba(255, 255, 255, .5);
-    text-transform: uppercase;
+    @media (max-width: 768px) {
+        font-size: 18px;
+        font-weight: 200;
+      }
 `
 
 export const Hero = (props) => {
   return (
     <Box>
       <TextArea>
-        <Heading>{ props.heading }</Heading>
+        <Heading>{props.heading}</Heading>
         <ParaText>
           <Para>I am a self-driven, highly motivated professional, passionate about acquiring new skills. My flexibility and open-mindedness are reflected by my ease of assimilating to new work environments.</Para>
         </ParaText>
       </TextArea>
       <BottomBox>
         <SocialSection>
-          <WriteHeading>WRITE TO</WriteHeading>
-          <Mail href="mailto:george@qode.com">george@qode.com</Mail>
           <SocialLink href="publications">Publications</SocialLink>
+
           <SocialLink href="events">events</SocialLink>
           <SocialLink href="mentorship">Mentorship</SocialLink>
           {/* <SocialLink href="#">TW</SocialLink> */}

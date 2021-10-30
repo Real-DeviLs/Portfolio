@@ -1,4 +1,4 @@
-import { PersonalInfo,ContactUs,Hero,Accordian,Biography,BlogCard } from '../components'
+import { PersonalInfo, ContactUs, Hero, Accordian, Biography, BlogCard } from '../components'
 
 import { Heading } from '../components/generic'
 import styled from "styled-components";
@@ -7,29 +7,12 @@ import groq from 'groq'
 
 
 const BlogCardWrapper = styled.div`
+    width: 85%;
+    margin:auto;
 
-  margin-top:-100px;
-  padding: 100px; 
-  @media(max-width: 1000px)
-    {
-       padding: 50px; 
-     
- 
-    }
-    @media(max-width: 750px)
-    {
-       padding: 0px; 
-    }
 `
 const HeadingWrapper = styled.div`
-
-    width:80%;
-    margin:auto;
-    padding-left:20px;
-    @media(max-width:1100px)
-    {
-        width:95%;
-    }
+    padding-left: 25px;
 `
 
 const personalDetailsQuery = groq`*\[_type == "personalDetails"\][0] {
@@ -52,22 +35,22 @@ export async function getStaticProps() {
   const posts = await client.fetch(groq`
       *[_type == "post" && publishedAt < now()]|order(publishedAt desc)
     `);
-  
-  let educationArray = [];
-  educationDetails.map((item)=>{
-    
-    
-    const eduObject = {
-      date1 : item.dateStart,
-      date2 : item.dateEnd,
-      details : item.details,
-      title  : item.courseName,
-      subTitle : item.institute,
-      }
 
-  educationArray.push(eduObject);
+  let educationArray = [];
+  educationDetails.map((item) => {
+
+
+    const eduObject = {
+      date1: item.dateStart,
+      date2: item.dateEnd,
+      details: item.details,
+      title: item.courseName,
+      subTitle: item.institute,
+    }
+
+    educationArray.push(eduObject);
   })
-  
+
   const data = { personalDetails, educationArray, posts };
 
   return {
@@ -81,28 +64,26 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   return (
     <>
-      <Hero heading="Lorem ipsum dolle lalo "></Hero>
+      <Hero heading="Lorem ipsum dolor sit amnsectetur adpisici do eiusmod tempor incidt ut" ></Hero>
       <PersonalInfo personalDetails={data.personalDetails}></PersonalInfo>
       <Biography></Biography>
       <Accordian heading="Education" items={data.educationArray}>
       </Accordian>
       <div>
 
-
-        <HeadingWrapper>
-        <Heading>Blogs</Heading>
-        </HeadingWrapper>
-
         <BlogCardWrapper>
-        {data.posts.map(
-          ({ _id, title, mainImage, slug }) =>
-            slug && (
-              <BlogCard key={_id} title={title} mainImage={mainImage} slug={slug} ></BlogCard>
-            )
-        )}
+          <HeadingWrapper>
+            <Heading>Blogs</Heading>
+          </HeadingWrapper>
+          {data.posts.map(
+            ({ _id, title, mainImage, body, slug }) =>
+              slug && (
+                <BlogCard key={_id} title={title} mainImage={mainImage} body={body} slug={slug} ></BlogCard>
+              )
+          )}
         </BlogCardWrapper>
       </div>
-      
+
       <ContactUs></ContactUs>
     </>
   )
