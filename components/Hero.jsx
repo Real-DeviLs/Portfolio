@@ -97,7 +97,11 @@ export const Hero = (props) => {
       <BottomBox>
         <SocialSection>
           <SocialLink href="publications">Publications</SocialLink>
-          <SocialLink href="events">Events</SocialLink>
+
+          <SocialLink href="events">events</SocialLink>
+          <SocialLink href="mentorship">Mentorship</SocialLink>
+          {/* <SocialLink href="#">TW</SocialLink> */}
+          {/* <SocialLink href="#">LN</SocialLink> */}
         </SocialSection>
       </BottomBox>
     </Box >
