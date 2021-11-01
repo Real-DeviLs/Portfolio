@@ -64,6 +64,7 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   return (
     <>
+    <meta name="google-site-verification" content="Uos9eQdKDUpeixoj2mpSrRldkZ5IPewI2IrI0goWqxc" />
       <Hero heading="Lorem ipsum dolor sit amnsectetur adpisici do eiusmod tempor incidt ut" ></Hero>
       <PersonalInfo personalDetails={data.personalDetails}></PersonalInfo>
       <Biography></Biography>
