@@ -64,7 +64,11 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   return (
     <>
+    <head>
+      <title>Mohit Kumar | Portfolio</title>
     <meta name="google-site-verification" content="Uos9eQdKDUpeixoj2mpSrRldkZ5IPewI2IrI0goWqxc" />
+
+    </head>
       <Hero heading="Lorem ipsum dolor sit amnsectetur adpisici do eiusmod tempor incidt ut" ></Hero>
       <PersonalInfo personalDetails={data.personalDetails}></PersonalInfo>
       <Biography></Biography>
