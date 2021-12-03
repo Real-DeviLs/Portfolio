@@ -5,4 +5,5 @@ export const Heading = styled.h2`
         font-size: 40px;
         font-family: Playfair Display,serif;
         font-weight:400;
+        
 `

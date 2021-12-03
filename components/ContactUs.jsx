@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
     display: flex;
     justify-content: center;
-    @media(max-width:1240px)
+    @media(max-width:1100px)
     {
         flex-direction: column;
         align-items: center;
@@ -34,6 +34,7 @@ const TagText = styled.h4`
 const LeftWrapper = styled.div`
 
     padding:25px 70px;
+   
     @media(max-width:1100px)
     {
       padding:25px 20px;
@@ -44,7 +45,7 @@ const LeftWrapper = styled.div`
 const RightWrapper = styled.div`
 
     padding:25px;
-
+    width:60%;
 `
 
 
@@ -63,11 +64,12 @@ const InputWrapper = styled.div`
     display: flex;
     position: relative;
     padding: 10px;
+    width:100%;
+
 `
 const StyledInput = styled.input`
 
     line-height:24px;
-    width:400px;
     color: #242424;
     border: 1px solid #000;
     background-color: transparent;
@@ -89,14 +91,10 @@ const StyledTextArea = styled.textarea`
     font-weight: bold;
     margin-left:10px;
     min-height: 200px;
-    width:820px;
+    width: 97%;
     outline: none;
     resize: none;
-    @media(max-width:${props => props.theme.breakpoint.tablet})
-    {
-        width:97%;
 
-    }
     @media(max-width:643px)
     {
         width:94%;
@@ -115,11 +113,10 @@ const IconWrapper = styled.span`
 
 const Description = styled.div`
     padding-top: 50px;
-    max-width:380px;
     font-size: 13px;
     line-height:23px;
     color:#595959;
-
+   
 `
 
 
