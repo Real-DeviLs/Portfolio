@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Box = styled.div`
     background-color: transparent;
     background-repeat: no-repeat;
-    background-image: url('/images/hero.jpg');
+    background-image: url('/images/books2.jpg');
     background-size: cover;
     background-position: 50% 50%;
     width: 100%;
@@ -70,11 +70,31 @@ const SocialSection = styled.div`
     @media (max-width: 768px) {
         gap: 60px;
     }
+    @media (max-width:420px)
+    {
+      font-size:16px;
+      gap:40px;
+    }
+    @media (max-width:384px)
+    {
+      font-size:14px;
+      gap:20px;
+    }
+    @media (max-width:343px)
+    {
+      font-size:12px;
+      gap:10px;
+    }
+    @media (max-width:322px)
+    {
+      font-size:8px;
+      gap:8px;
+    }
 `
 
 const SocialLink = styled.a`
     padding: 10px;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 500;
     letter-spacing: .1em;
     line-height: 22px;
