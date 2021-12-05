@@ -69,7 +69,7 @@ export default function Home({ data }) {
     <meta name="google-site-verification" content="Uos9eQdKDUpeixoj2mpSrRldkZ5IPewI2IrI0goWqxc" />
 
     </head>
-      <Hero heading="Lorem ipsum dolor sit amnsectetur adpisici do eiusmod tempor incidt ut" ></Hero>
+      <Hero heading="A good teacher can inspire hope, ignite the imagination, and instill a love of learning" ></Hero>
       <PersonalInfo personalDetails={data.personalDetails}></PersonalInfo>
       <Biography></Biography>
       <Accordian heading="Education" items={data.educationArray}>
